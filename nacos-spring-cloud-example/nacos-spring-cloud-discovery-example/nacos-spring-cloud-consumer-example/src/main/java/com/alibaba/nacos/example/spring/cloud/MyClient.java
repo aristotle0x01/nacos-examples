@@ -7,7 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-@FeignClient(value = "service-provider", configuration = FeignConfig.class)
+// service-provider
+@FeignClient(name = "testController", configuration = FeignConfig.class, url = "http://localhost:8070/")
 public interface MyClient {
     @RequestMapping(method = RequestMethod.GET, value = "/srv")
     String echo2(@RequestParam("param") String param);
