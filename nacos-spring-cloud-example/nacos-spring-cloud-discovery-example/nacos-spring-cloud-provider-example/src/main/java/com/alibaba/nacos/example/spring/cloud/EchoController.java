@@ -1,11 +1,13 @@
 package com.alibaba.nacos.example.spring.cloud;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -28,8 +30,13 @@ public class EchoController {
         return "Hello Nacos Discovery from provider: " + param;
     }
 
+    @Autowired
+    private HttpServletRequest request;
     @PostMapping("/upload")
     public ResponseEntity<String> uploadFiles(@RequestPart("files") MultipartFile files) {
+        // cookie passed by consumer feign CookieInterceptor
+        System.out.println("consumer side token: " + request.getHeader("token"));
+
         String message = "";
         try {
             List<String> fileNames = new ArrayList<>();

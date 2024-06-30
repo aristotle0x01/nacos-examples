@@ -23,6 +23,6 @@ public interface MyClient {
 
 
     @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    @Headers("Content-Type: multipart/form-data")
+    @Headers({"Content-Type: multipart/form-data"})
     ResponseEntity<String> uploadFiles(@RequestPart("files") MultipartFile file);
 }

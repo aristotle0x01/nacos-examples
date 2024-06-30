@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -40,6 +41,8 @@ public class TestController {
 
     @PostMapping("/upload")
     public ResponseEntity<String> uploadFiles(@RequestPart("files") MultipartFile files) {
+        int i = 0;
+        System.out.println("uploadFiles client");
         return myClient.uploadFiles(files);
     }
 }
