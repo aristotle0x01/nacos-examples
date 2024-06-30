@@ -32,3 +32,6 @@ https://nacos.io/en-us/docs/use-nacos-with-dubbo.html
 
 ## Run Demo
 Run Main
+
+## feign multipart upload example
+in nacos-spring-cloud-discovery-example sub module
