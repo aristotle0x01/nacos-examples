@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 @Component
 public class CookieInterceptor implements RequestInterceptor {
 
+    // https://blog.csdn.net/WYA1993/article/details/84304243
     @Override
     public void apply(RequestTemplate template) {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
